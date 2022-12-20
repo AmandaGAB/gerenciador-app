@@ -1,0 +1,41 @@
+<div class="containerCliente">
+    <div fxLayout="row" fxLayoutAlign="center" class="menuComponent">
+      <button [matMenuTriggerFor]="menu1" mat-button>Cliente</button>
+      <mat-menu #menu1="matMenu">
+        <button mat-menu-item [routerLink]="['/clientes']">Listagem de Clientes</button>
+        <button mat-menu-item [routerLink]="['/cadastrarClientes']">Cadastrar Cliente</button>
+      </mat-menu>
+      <mat-menu #menu3="matMenu">
+        <button mat-menu-item [routerLink]="['/usuarios']">Listagem de Usuarios</button>
+        <button mat-menu-item [routerLink]="['/cadastrarUsuarios']">Cadastrar Usuário</button>
+      </mat-menu>
+      <button  mat-button>Sair <mat-icon>logout</mat-icon></button>
+      <button    mat-button [routerLink]="['']"  mat-button>Inicio <mat-icon>home</mat-icon></button>
+    </div>
+  
+    <div fxLayout="column" fxLayoutAlign="center" fxLayoutGap="10px" class="listagemClientes">
+      <mat-card class="listagem"><mat-card-title   >Listagem de Clientes</mat-card-title></mat-card>
+      <table  mat-table [dataSource]="clientes" >
+  
+        <ng-container  matColumnDef="nome">
+          <th bgcolor="#02040a" *matHeaderCellDef> Nome</th>
+          <td bgcolor="#faebd7" mat-cell *matCellDef="let cliente"> {{cliente.nome}} </td>
+        </ng-container>
+  
+        <ng-container  matColumnDef="rg">
+          <th bgcolor="#02040a" *matHeaderCellDef> RG</th>
+          <td bgcolor="#c4c4c4"  mat-cell *matCellDef="let cliente"> {{cliente.rg }} </td>
+        </ng-container>
+  
+        <ng-container  matColumnDef="cpf">
+          <th bgcolor="#02040a" *matHeaderCellDef> CPF</th>
+          <td bgcolor="#c4c4c4"  mat-cell *matCellDef="let cliente"> {{cliente.cpf}} </td>
+        </ng-container>
+  
+       
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+  
+    </div>
+  </div>

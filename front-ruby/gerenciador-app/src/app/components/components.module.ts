@@ -21,13 +21,15 @@ import {MatDividerModule} from "@angular/material/divider";
 import {MatRadioModule} from "@angular/material/radio";
 import {MatTabsModule} from "@angular/material/tabs";
 import {MatListModule} from '@angular/material/list';
-
+import { ClientesComponent } from './clientes/clientes.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 @NgModule({
   declarations: [
     CadastrarClientesComponent,
     CadastrarFuncionariosComponent,
     CadastrarEquipamentosComponent,
-    LoginComponent
+    LoginComponent,
+    ClientesComponent
   ],
   imports: [
     CommonModule,
@@ -48,7 +50,9 @@ import {MatListModule} from '@angular/material/list';
     MatDividerModule,
     MatRadioModule,
     MatTabsModule,
-    MatListModule
+    MatListModule,
+    FlexLayoutModule
+    
   ]
 })
 export class ComponentsModule { }
