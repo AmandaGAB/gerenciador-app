@@ -1,1 +1,52 @@
-<p>cadastrar-funcionarios works!</p>
+<div >
+    <div fxLayout="row" fxLayoutAlign="center" class="menuComponent">
+      <button [matMenuTriggerFor]="menu1" mat-button>funcionario</button>
+      <mat-menu #menu1="matMenu">
+        <button mat-menu-item [routerLink]="['/funcionarios']">Listagem de Funcionarios</button>
+        <button mat-menu-item [routerLink]="['/cadastrarFuncionarios']">Cadastrar Funcionario</button>
+      </mat-menu>
+    </div>
+
+  <div id="main">
+    <mat-card class="example-card">
+      <!--    fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-around center"-->
+      <h2 class="texto_label titulo-login">Inserir Funcionario</h2>
+
+      <!--Inicio do Form>-->
+      <mat-card-content >
+        <form class="example-form">
+          <mat-form-field class="example-full-width" id="name" appearance="fill">
+            <mat-label  class="texto_label">Nome</mat-label>
+            <input autocomplete="on" name="nome" [(ngModel)]="funcionario.nome" matInput placeholder="digite seu nome">
+           
+          </mat-form-field>
+          
+
+
+          <!--CRM-->
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label  class="texto_label">RG</mat-label>
+            <input autocomplete="on" name="crm" type="text"  [(ngModel)]="funcionario.rg" matInput  placeholder="Digite o seu CRM"value="">
+          </mat-form-field>
+
+          <!--assistencia_id_assistencia-->
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label  class="texto_label">CPF</mat-label>
+
+            <input [ngModel]="funcionario.cpf" 
+            (ngModelChange)="funcionario.cpf=$event" autocomplete="on" name="cpf" type="text"  matInput  placeholder="Digite o número do seu telefone"value="" >
+          </mat-form-field>
+
+         
+        </form>
+      </mat-card-content>
+
+      <mat-card-actions>
+        <button mat-raised-button id="but" (click)="inserirFuncionario()">
+          <mat-icon *ngIf="operacaoCadastro">person_add</mat-icon>
+          <mat-icon *ngIf="!operacaoCadastro">edit</mat-icon>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
