@@ -23,13 +23,17 @@ import {MatTabsModule} from "@angular/material/tabs";
 import {MatListModule} from '@angular/material/list';
 import { ClientesComponent } from './clientes/clientes.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { EquipamentosComponent } from './equipamentos/equipamentos.component';
+import { FuncionariosComponent } from './funcionarios/funcionarios.component';
 @NgModule({
   declarations: [
     CadastrarClientesComponent,
     CadastrarFuncionariosComponent,
     CadastrarEquipamentosComponent,
     LoginComponent,
-    ClientesComponent
+    ClientesComponent,
+    EquipamentosComponent,
+    FuncionariosComponent
   ],
   imports: [
     CommonModule,
