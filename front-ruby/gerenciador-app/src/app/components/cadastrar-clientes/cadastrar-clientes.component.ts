@@ -36,14 +36,14 @@ export class CadastrarClientesComponent {
       this.ClienteService.atualizar(this.cliente).subscribe(_cliente => {
         this.mensagemService.success('Dados atualizados com Sucesso!');
 
-        this.roteador.navigate(['Clientes']);
+        this.roteador.navigate(['/clientes']);
       })
       
 
     } else {
       this.ClienteService.inserir(this.cliente).subscribe(_cliente => {
         this.mensagemService.success('Cliente cadastrado com Sucesso!');
-        this.roteador.navigate(['Clientes']);
+        this.roteador.navigate(['/clientes']);
       })
       this.cliente = new Cliente();
 

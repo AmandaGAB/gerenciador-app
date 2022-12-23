@@ -1,9 +1,29 @@
 <div >
     <div fxLayout="row" fxLayoutAlign="center" class="menuComponent">
-      <button [matMenuTriggerFor]="menu1" mat-button>Cliente</button>
+      <button [matMenuTriggerFor]="menu1" mat-button > <mat-icon>+</mat-icon>Equipamentos</button>
       <mat-menu #menu1="matMenu">
+        <button mat-menu-item [routerLink]="['/equipamentos']">Listagem de Equipamentos</button>
+        <button mat-menu-item [routerLink]="['/cadastrarEquipamentos']">Cadastrar Equipamentos</button>
+      </mat-menu>
+      <button [matMenuTriggerFor]="menu2" mat-button > <mat-icon>+</mat-icon>Manutenções</button>
+      <mat-menu #menu2="matMenu">
+        <button mat-menu-item [routerLink]="['/manutencoes']">Listagem de Manutenções</button>
+        <button mat-menu-item [routerLink]="['/cadastrarManutencoes']">Cadastrar Manutenções</button>
+      </mat-menu>
+      <button [matMenuTriggerFor]="menu3" mat-button > <mat-icon>+</mat-icon>Funcionários</button>
+      <mat-menu #menu3="matMenu">
+        <button mat-menu-item [routerLink]="['/funcionarios']">Listagem de Funcionários</button>
+        <button mat-menu-item [routerLink]="['/cadastrarFuncionarios']">Cadastrar Funcionários</button>
+      </mat-menu>
+      <button [matMenuTriggerFor]="menu4" mat-button > <mat-icon>+</mat-icon>Clientes</button>
+      <mat-menu #menu4="matMenu">
         <button mat-menu-item [routerLink]="['/clientes']">Listagem de Clientes</button>
-        <button mat-menu-item [routerLink]="['/cadastrarclientes']">Cadastrar Cliente</button>
+        <button mat-menu-item [routerLink]="['/cadastrarClientes']">Cadastrar Clientes</button>
+      </mat-menu>
+      <button [matMenuTriggerFor]="menu5" mat-button > <mat-icon>+</mat-icon>Usuários</button>
+      <mat-menu #menu5="matMenu">
+        <button mat-menu-item [routerLink]="['/usuarios']">Listagem de Usuarios</button>
+        <button mat-menu-item [routerLink]="['/cadastrarUsuarios']">Cadastrar Usuário</button>
       </mat-menu>
     </div>
 
@@ -21,15 +41,11 @@
            
           </mat-form-field>
           
-
-
-          <!--CRM-->
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label  class="texto_label">RG</mat-label>
             <input autocomplete="on" name="crm" type="text"  [(ngModel)]="cliente.rg" matInput  placeholder="Digite o seu CRM"value="">
           </mat-form-field>
 
-          <!--assistencia_id_assistencia-->
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label  class="texto_label">CPF</mat-label>
 

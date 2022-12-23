@@ -1,13 +1,24 @@
 <div class="containerFuncionario">
     <div fxLayout="row" fxLayoutAlign="center" class="menuComponent">
-      <button [matMenuTriggerFor]="menu1" mat-button > <mat-icon>person</mat-icon>Funcionario</button>
+      <button [matMenuTriggerFor]="menu1" mat-button > <mat-icon>+</mat-icon>Equipamentos</button>
       <mat-menu #menu1="matMenu">
-        <button mat-menu-item [routerLink]="['/funcionarios']">Listagem de funcionarios</button>
-        <button mat-menu-item [routerLink]="['/cadastrarFuncionarios']">Cadastrar funcionario</button>
+        <button mat-menu-item [routerLink]="['/equipamentos']">Listagem de Equipamentos</button>
+        <button mat-menu-item [routerLink]="['/cadastrarEquipamentos']">Cadastrar Equipamentos</button>
       </mat-menu>
+      <button [matMenuTriggerFor]="menu2" mat-button > <mat-icon>+</mat-icon>Manutenções</button>
+      <mat-menu #menu2="matMenu">
+        <button mat-menu-item [routerLink]="['/manutencoes']">Listagem de Manutenções</button>
+        <button mat-menu-item [routerLink]="['/cadastrarManutencoes']">Cadastrar Manutenções</button>
+      </mat-menu>
+      <button [matMenuTriggerFor]="menu3" mat-button > <mat-icon>+</mat-icon>Funcionários</button>
       <mat-menu #menu3="matMenu">
-        <button mat-menu-item [routerLink]="['/usuarios']">Listagem de Usuarios</button>
-        <button mat-menu-item [routerLink]="['/cadastrarUsuarios']">Cadastrar Usuário</button>
+        <button mat-menu-item [routerLink]="['/funcionarios']">Listagem de Funcionários</button>
+        <button mat-menu-item [routerLink]="['/cadastrarFuncionarios']">Cadastrar Funcionários</button>
+      </mat-menu>
+      <button [matMenuTriggerFor]="menu4" mat-button > <mat-icon>+</mat-icon>Clientes</button>
+      <mat-menu #menu4="matMenu">
+        <button mat-menu-item [routerLink]="['/clientes']">Listagem de Clientes</button>
+        <button mat-menu-item [routerLink]="['/cadastrarClientes']">Cadastrar Clientes</button>
       </mat-menu>
       <button  mat-button>Sair <mat-icon>logout</mat-icon></button>
       <button    mat-button [routerLink]="['']"  mat-button>Inicio <mat-icon>home</mat-icon></button>
@@ -32,6 +43,16 @@
           <td  mat-cell *matCellDef="let funcionario"> {{funcionario.cpf}} </td>
         </ng-container>
   
+        <ng-container matColumnDef="opções">
+          <th bgcolor="#02040a" *matHeaderCellDef> Opções</th>
+          <td bgcolor="#c4c4c4"  mat-cell  *matCellDef="let funcionario">
+              <!-- <button  mat-icon-button ><mat-icon>calendar_month</mat-icon></button> -->
+              <button  mat-icon-button (click)="editar(funcionario)"><mat-icon>create</mat-icon></button>
+              <button mat-icon-button (click)="remover(funcionario)"><mat-icon>delete</mat-icon></button>
+
+          </td>
+
+      </ng-container>
        
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

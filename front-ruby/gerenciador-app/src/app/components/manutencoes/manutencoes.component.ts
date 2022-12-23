@@ -1,45 +1,45 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Funcionario } from 'src/app/model/Funcionario';
-import { FuncionariosService } from 'src/app/services/funcionarios.service';
+import { Manutencao } from 'src/app/model/Manutencao';
+import { ManutencoesService } from 'src/app/services/manutencoes.service';
 import { MensagensService } from 'src/app/services/mensagens.service';
 
 @Component({
-  selector: 'app-funcionarios',
-  templateUrl: './funcionarios.component.html',
-  styleUrls: ['./funcionarios.component.scss']
+  selector: 'app-manutencoes',
+  templateUrl: './manutencoes.component.html',
+  styleUrls: ['./manutencoes.component.scss']
 })
-export class FuncionariosComponent {
+export class ManutencoesComponent {
 
-  funcionarios = Array<Funcionario>();
+  manutencoes = Array<Manutencao>();
 
   displayedColumns: string[] = [
-    'nome', 'rg', 'cpf', 'opções'];
+    'dataInicio', 'dataTermino', 'cliente_id', 'funcionario_id', 'status', 'total', 'opções'];
     
-  constructor(private FuncionarioService: FuncionariosService,
+  constructor(private manutencoesService: ManutencoesService,
     private roteador: Router,
     private mensagemService: MensagensService) {
-    console.log(Funcionario)
+    console.log(Manutencao)
 }
 
 ngOnInit(): void {
-  this.FuncionarioService.listar().subscribe(
+  this.manutencoesService.listar().subscribe(
 
-    p => this.funcionarios = p
+    p => this.manutencoes = p
     
 
   )
 
 }
-editar(funcionario: Funcionario): void {
-  this.roteador.navigate(['funcionarios/cadastrar', funcionario.id])
+editar(manutencao: Manutencao): void {
+  this.roteador.navigate(['manutencoes/cadastrar', manutencao.id])
 }
-remover( funcionario: Funcionario) : void{
-  this.FuncionarioService.remover(Number(funcionario.id)).subscribe(
+remover( manutencao: Manutencao) : void{
+  this.manutencoesService.remover(Number(manutencao.id)).subscribe(
       resposta => {
-        const indexUsuarioParaRemover = this.funcionarios.findIndex(u => u.id === funcionario.id)
+        const indexUsuarioParaRemover = this.manutencoes.findIndex(u => u.id === manutencao.id)
         if(indexUsuarioParaRemover > -1) {
-          this.funcionarios.splice(indexUsuarioParaRemover, 1)
+          this.manutencoes.splice(indexUsuarioParaRemover, 1)
           this.mensagemService.success('Usuario removido!');
 
 

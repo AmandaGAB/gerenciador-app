@@ -36,14 +36,14 @@ export class CadastrarFuncionariosComponent {
       this.FuncionarioService.atualizar(this.funcionario).subscribe(_Funcionario => {
         this.mensagemService.success('Dados atualizados com Sucesso!');
 
-        this.roteador.navigate(['Funcionarios']);
+        this.roteador.navigate(['/funcionarios']);
       })
       
 
     } else {
       this.FuncionarioService.inserir(this.funcionario).subscribe(_Funcionario => {
         this.mensagemService.success('Funcionario cadastrado com Sucesso!');
-        this.roteador.navigate(['Funcionarios']);
+        this.roteador.navigate(['/funcionarios']);
       })
       this.funcionario = new Funcionario();
 

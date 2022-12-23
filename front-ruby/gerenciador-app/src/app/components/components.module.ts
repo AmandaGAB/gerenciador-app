@@ -25,6 +25,8 @@ import { ClientesComponent } from './clientes/clientes.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { EquipamentosComponent } from './equipamentos/equipamentos.component';
 import { FuncionariosComponent } from './funcionarios/funcionarios.component';
+import { ManutencoesComponent } from './manutencoes/manutencoes.component';
+import { CadastrarManutencoesComponent } from './cadastrar-manutencoes/cadastrar-manutencoes.component';
 @NgModule({
   declarations: [
     CadastrarClientesComponent,
@@ -33,7 +35,9 @@ import { FuncionariosComponent } from './funcionarios/funcionarios.component';
     LoginComponent,
     ClientesComponent,
     EquipamentosComponent,
-    FuncionariosComponent
+    FuncionariosComponent,
+    ManutencoesComponent,
+    CadastrarManutencoesComponent
   ],
   imports: [
     CommonModule,

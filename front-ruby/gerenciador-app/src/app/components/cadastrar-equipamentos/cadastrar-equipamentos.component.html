@@ -1,1 +1,75 @@
-<p>cadastrar-equipamentos works!</p>
+<div>
+  <div fxLayout="row" fxLayoutAlign="center" class="menuComponent">
+    <button [matMenuTriggerFor]="menu1" mat-button > <mat-icon>+</mat-icon>Equipamentos</button>
+    <mat-menu #menu1="matMenu">
+      <button mat-menu-item [routerLink]="['/equipamentos']">Listagem de Equipamentos</button>
+      <button mat-menu-item [routerLink]="['/cadastrarEquipamentos']">Cadastrar Equipamentos</button>
+    </mat-menu>
+    <button [matMenuTriggerFor]="menu2" mat-button > <mat-icon>+</mat-icon>Manutenções</button>
+    <mat-menu #menu2="matMenu">
+      <button mat-menu-item [routerLink]="['/manutencoes']">Listagem de Manutenções</button>
+      <button mat-menu-item [routerLink]="['/cadastrarManutencoes']">Cadastrar Manutenções</button>
+    </mat-menu>
+    <button [matMenuTriggerFor]="menu3" mat-button > <mat-icon>+</mat-icon>Funcionários</button>
+    <mat-menu #menu3="matMenu">
+      <button mat-menu-item [routerLink]="['/funcionarios']">Listagem de Funcionários</button>
+      <button mat-menu-item [routerLink]="['/cadastrarFuncionarios']">Cadastrar Funcionários</button>
+    </mat-menu>
+    <button [matMenuTriggerFor]="menu4" mat-button > <mat-icon>+</mat-icon>Clientes</button>
+    <mat-menu #menu4="matMenu">
+      <button mat-menu-item [routerLink]="['/clientes']">Listagem de Clientes</button>
+      <button mat-menu-item [routerLink]="['/cadastrarClientes']">Cadastrar Clientes</button>
+    </mat-menu>
+    <button [matMenuTriggerFor]="menu5" mat-button > <mat-icon>+</mat-icon>Usuários</button>
+    <mat-menu #menu5="matMenu">
+      <button mat-menu-item [routerLink]="['/usuarios']">Listagem de Usuarios</button>
+      <button mat-menu-item [routerLink]="['/cadastrarUsuarios']">Cadastrar Usuário</button>
+    </mat-menu>
+  </div>
+
+<div id="main">
+  <mat-card class="example-card">
+    <!--    fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-around center"-->
+    <h2 class="texto_label titulo-login">Inserir Equipamento</h2>
+
+    <!--Inicio do Form>-->
+    <mat-card-content >
+      <form class="example-form">
+        <mat-form-field class="example-full-width" id="descricao" appearance="fill">
+          <mat-label  class="texto_label">Descrição</mat-label>
+          <input autocomplete="on" name="descricao" [(ngModel)]="equipamento.descricao" matInput placeholder="Digite a descrição do equipamento">
+         
+        </mat-form-field>
+        
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label  class="texto_label">Modelo</mat-label>
+          <input autocomplete="on" name="modelo" type="text"  [(ngModel)]="equipamento.modelo" matInput  placeholder="Digite o modelo do equipamento"value="">
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label  class="texto_label">ID do Cliente</mat-label>
+          <input autocomplete="on" name="cliente_id" type="text"  [(ngModel)]="equipamento.cliente_id" matInput  placeholder="Digite o id do cliente"value="">
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label  class="texto_label">ID da Manutenção</mat-label>
+          <input autocomplete="on" name="manutencao_id" type="text"  [(ngModel)]="equipamento.manutencao_id" matInput  placeholder="Digite o id da manutenção"value="">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label  class="texto_label">Tipo</mat-label>
+
+          <input [ngModel]="equipamento.tipo" 
+          (ngModelChange)="equipamento.tipo=$event" autocomplete="on" name="tipo" type="text"  matInput  placeholder="Digite o tipo do equipamento"value="" >
+        </mat-form-field>
+
+       
+      </form>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-raised-button id="but" (click)="inserirEquipamentos()">
+        <mat-icon *ngIf="operacaoCadastro">person_add</mat-icon>
+        <mat-icon *ngIf="!operacaoCadastro">edit</mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>
